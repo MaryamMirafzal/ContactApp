@@ -1,3 +1,4 @@
+import Header from "./Components/Header"
 
 
 
@@ -5,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1>Contact app</h1>
+      <Header />
     </>
   )
 }
