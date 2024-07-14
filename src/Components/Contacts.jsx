@@ -4,6 +4,7 @@ import ContactsList from "./ContactsList";
 
 function Contacts() {
     const [contacts, setContacts] = useState([])
+    const [ alert , setAlert ] = useState("")
     const [contact , setContact ] = useState({
         name:'',
         lastName:'',
@@ -16,8 +17,18 @@ function Contacts() {
         setContact((contact)=> ({...contact,[name]:value}))
     }
     const addContacts = () =>{
+      if( !contact.name || !contact.lastName || !contact.phone || !contact.email ){
+        setAlert("Please enter valid data! ")
+        return;
+      }
+      setAlert("");
       setContacts( contacts => [...contacts , contact])
-      console.log(contacts);
+      setContact({
+        name:"",
+        lastName:"",
+        phone:"",
+        email:"",
+      })
     }
   return (
     
@@ -48,6 +59,7 @@ function Contacts() {
               />
             <button onClick={addContacts}>Add Contact</button>
         </div>
+        <div>{alert && <p>{alert}</p>}</div>
         <ContactsList contacts={contacts} />
     </div>
   )
