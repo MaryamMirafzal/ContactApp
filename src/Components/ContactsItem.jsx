@@ -1,9 +1,8 @@
-import Contacts from "./Contacts"
-
+import styles from './ContactItem.module.css'
 function ContactsItem({data:{ id , name , lastName , email , number } , deleteHandler}) {
   return (
     
-    <li key={id}>
+    <li className={styles.item} key={id}>
             <p>{name} {lastName}</p>
             <p>
               <span>📬</span>

@@ -2,7 +2,8 @@
 // export default Contacts
 import { useState } from "react";
 import ContactsList from "./ContactsList";
-import { v4 } from "uuid"
+import { v4 } from "uuid";
+import styles from "./Contacts.module.css";
 
 const inputs = [
   { type: "text", name: "name", placeholder: "Name" },
@@ -48,8 +49,8 @@ function Contacts() {
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.form}>
         {inputs.map((input) => (
           <input
             key={input.name}
@@ -62,7 +63,7 @@ function Contacts() {
         ))}
         <button onClick={addContacts}>Add Contact</button>
       </div>
-      <div>{alert && <p>{alert}</p>}</div>
+      <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
       <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
     </div>
   );
