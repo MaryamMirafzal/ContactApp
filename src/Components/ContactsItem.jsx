@@ -1,6 +1,8 @@
+import Contacts from "./Contacts"
 
-function ContactsItem({data:{ id , name , lastName , email , number }}) {
+function ContactsItem({data:{ id , name , lastName , email , number } , deleteHandler}) {
   return (
+    
     <li key={id}>
             <p>{name} {lastName}</p>
             <p>
@@ -11,7 +13,7 @@ function ContactsItem({data:{ id , name , lastName , email , number }}) {
               <span>📞</span>
               {number}
             </p>
-              <button>🗑</button>
+              <button onClick={()=> deleteHandler(id)}>🗑</button>
           </li>
   )
 }

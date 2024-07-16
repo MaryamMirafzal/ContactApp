@@ -26,6 +26,10 @@ function Contacts() {
     const { name, value } = event.target;
     setContact((prevContact) => ({ ...prevContact, [name]: value }));
   };
+  const deleteHandler  = (id)=>{
+    const newContacts = contacts.filter((contact) => contact.id !== id)
+    setContacts(newContacts)
+  }
 
   const addContacts = () => {
     if (!contact.name || !contact.lastName || !contact.phone || !contact.email) {
@@ -59,7 +63,7 @@ function Contacts() {
         <button onClick={addContacts}>Add Contact</button>
       </div>
       <div>{alert && <p>{alert}</p>}</div>
-      <ContactsList contacts={contacts} />
+      <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
     </div>
   );
 }

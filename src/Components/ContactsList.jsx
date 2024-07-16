@@ -1,6 +1,6 @@
 import ContactsItem from "./ContactsItem";
 
-function ContactsList({contacts}) {
+function ContactsList({contacts , deleteHandler}) {
   console.log(contacts);
   return (
     <div>
@@ -8,7 +8,7 @@ function ContactsList({contacts}) {
       {contacts.length?
         <ul>
         {contacts.map((contact) =>
-          (<ContactsItem key={contact.id} data={contact}/> ))}
+          (<ContactsItem key={contact.id} data={contact} deleteHandler={deleteHandler}/> ))}
         </ul>:
       <p>No Contacts yet!</p>
       }
